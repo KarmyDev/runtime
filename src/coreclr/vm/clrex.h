@@ -693,6 +693,9 @@ class EEFileLoadException : public EEException
         return new EEFileLoadException(m_name, m_hr);
     }
 
+    // Helper method to create exception with custom message for version conflicts
+    static EEFileLoadException* CreateVersionConflictException(const SString &name, Exception *pInnerException);
+
  private:
 #ifdef _DEBUG
     EEFileLoadException()
