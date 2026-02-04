@@ -3406,7 +3406,13 @@ namespace Internal.JitInterface
 
         private CORINFO_WASM_TYPE_SYMBOL_STRUCT_* getWasmTypeSymbol(CorInfoType* types, UIntPtr typesSize)
         {
-            throw new NotImplementedException();
+            CorInfoType[] typeArray = new CorInfoType[(int)typesSize.ToUInt32()];
+            for (int i = 0; i < typeArray.Length; i++)
+            {
+                typeArray[i] = types[i];
+            }
+            WasmTypeNode typeNode = new (typeArray, null /* WASM-FIXME */);
+            return (CORINFO_WASM_TYPE_SYMBOL_STRUCT_*)ObjectToHandle(typeNode);
         }
 
 #pragma warning disable CA1822 // Mark members as static
