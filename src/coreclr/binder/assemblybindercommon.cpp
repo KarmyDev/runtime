@@ -489,8 +489,9 @@ namespace BINDER_SPACE
                 hr = isCompatible ? S_OK : FUSION_E_APP_DOMAIN_LOCKED;
                 pBindResult->SetAttemptResult(hr, pAssembly, /*isInContext*/ true);
 
-                // Return FUSION_E_APP_DOMAIN_LOCKED for incompatible version to provide
-                // a clearer error message about version conflicts
+                // TPA binder returns FUSION_E_REF_DEF_MISMATCH for incompatible version
+                if (hr == FUSION_E_APP_DOMAIN_LOCKED && isTpaListProvided)
+                    hr = FUSION_E_REF_DEF_MISMATCH;
             }
             else
             {
@@ -515,8 +516,9 @@ namespace BINDER_SPACE
                 hr = isCompatible ? S_OK : FUSION_E_APP_DOMAIN_LOCKED;
                 pBindResult->SetAttemptResult(hr, pBindResult->GetAssembly());
 
-                // Return FUSION_E_APP_DOMAIN_LOCKED for incompatible version to provide
-                // a clearer error message about version conflicts
+                // TPA binder returns FUSION_E_REF_DEF_MISMATCH for incompatible version
+                if (hr == FUSION_E_APP_DOMAIN_LOCKED && isTpaListProvided)
+                    hr = FUSION_E_REF_DEF_MISMATCH;
             }
 
             if (FAILED(hr))
