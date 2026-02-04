@@ -163,6 +163,9 @@ void emitter::emitIns_Call(const EmitCallParams& params)
             // TODO-WASM: temporary, move this into higher layers (lowering).
             emitIns_I(INS_i32_load, EA_PTRSIZE, 0);
             ins = params.isJump ? INS_return_call_indirect : INS_call_indirect;
+            // TODO-WASM: Generate actual list of types and generate reloc
+            // This is here to exercise the new JIT-EE API
+            codeGen->GetCompiler()->info.compCompHnd->getWasmTypeSymbol(nullptr, 0);
             id  = emitNewInstrSC(EA_8BYTE, 0 /* FIXME-WASM: type index reloc */);
             id->idIns(ins);
             id->idInsFmt(IF_CALL_INDIRECT);
