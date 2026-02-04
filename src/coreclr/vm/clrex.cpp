@@ -1535,6 +1535,13 @@ void EEFileLoadException::GetMessage(SString &result)
 {
     WRAPPER_NO_CONTRACT;
 
+    // If a custom message is set, use it
+    if (!m_customMessage.IsEmpty())
+    {
+        result.Set(m_customMessage);
+        return;
+    }
+
     SString sHR;
     GetHRMsg(m_hr, sHR);
     GetResourceMessage(GetResourceIDForFileLoadExceptionHR(m_hr), result, m_name, sHR);
@@ -1682,6 +1689,26 @@ void DECLSPEC_NORETURN EEFileLoadException::Throw(AssemblySpec  *pSpec, HRESULT 
 
     StackSString name;
     pSpec->GetDisplayName(0, name);
+
+    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility
+    // but attach a custom message to indicate version conflict
+    if (hr == FUSION_E_APP_DOMAIN_LOCKED)
+    {
+        hr = FUSION_E_REF_DEF_MISMATCH;
+        EEFileLoadException *pException = new EEFileLoadException(name, hr, pInnerException);
+        
+        // Set custom message indicating this is a version conflict
+        StackSString message;
+        message.LoadResource(IDS_EE_FILELOAD_ERROR_GENERIC);
+        StackSString versionMessage;
+        versionMessage.LoadResource(FUSION_E_APP_DOMAIN_LOCKED);
+        StackSString customMessage;
+        customMessage.FormatMessage(FORMAT_MESSAGE_FROM_STRING, message.GetUnicode(), 0, 0, name, versionMessage);
+        pException->m_customMessage.Set(customMessage);
+        
+        PAL_CPP_THROW(EEFileLoadException *, pException);
+    }
+
     EX_THROW_WITH_INNER(EEFileLoadException, (name, hr), pInnerException);
 }
 
@@ -1703,6 +1730,25 @@ void DECLSPEC_NORETURN EEFileLoadException::Throw(PEAssembly *pPEAssembly, HRESU
 
     StackSString name;
     pPEAssembly->GetDisplayName(name);
+
+    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility
+    // but attach a custom message to indicate version conflict
+    if (hr == FUSION_E_APP_DOMAIN_LOCKED)
+    {
+        hr = FUSION_E_REF_DEF_MISMATCH;
+        EEFileLoadException *pException = new EEFileLoadException(name, hr, pInnerException);
+        
+        // Set custom message indicating this is a version conflict
+        StackSString message;
+        message.LoadResource(IDS_EE_FILELOAD_ERROR_GENERIC);
+        StackSString versionMessage;
+        versionMessage.LoadResource(FUSION_E_APP_DOMAIN_LOCKED);
+        StackSString customMessage;
+        customMessage.FormatMessage(FORMAT_MESSAGE_FROM_STRING, message.GetUnicode(), 0, 0, name, versionMessage);
+        pException->m_customMessage.Set(customMessage);
+        
+        PAL_CPP_THROW(EEFileLoadException *, pException);
+    }
 
     EX_THROW_WITH_INNER(EEFileLoadException, (name, hr), pInnerException);
 

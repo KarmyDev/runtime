@@ -662,6 +662,7 @@ class EEFileLoadException : public EEException
   private:
     SString m_name;
     HRESULT m_hr;
+    SString m_customMessage;  // Custom error message (optional, overrides default HRESULT message)
 
   public:
 
