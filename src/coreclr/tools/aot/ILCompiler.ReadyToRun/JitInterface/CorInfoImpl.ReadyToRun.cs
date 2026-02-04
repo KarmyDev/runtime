@@ -3239,7 +3239,7 @@ namespace Internal.JitInterface
                     // Disable async methods in cross module inlines for now, we need to trigger the CheckILBodyFixupSignature in the right situations, and that hasn't been implemented
                     // yet. Currently, we'll correctly trigger the _ilBodiesNeeded logic below, but we also need to avoid triggering the ILBodyFixupSignature for the async thunks, but we ALSO need to make
                     // sure we generate the CheckILBodyFixupSignature for the actual runtime-async body in which case I think the typicalMethod will be an AsyncVariantMethod, which doesn't appear
-                    // to be handled here. This check is here in the place where I believe we actually would behave incorrectly, but we also have a check in CrossModuleInlineable which disallows 
+                    // to be handled here. This check is here in the place where I believe we actually would behave incorrectly, but we also have a check in CrossModuleInlineable which disallows
                     // the cross module inline of async methods currently.
                     throw new Exception("Inlining async methods is not supported in ReadyToRun compilation.");
                 }
@@ -3273,7 +3273,7 @@ namespace Internal.JitInterface
                     // 2. If at any time, the set of methods that are inlined includes a method which has an IL body without
                     //    tokens that are useable in compilation, record that information, and once the multi-threaded portion
                     //    of the build finishes, it will then compute the IL bodies for those methods, then run the compilation again.
-                    
+
                     if (needsTokenTranslation && !(methodIL is IMethodTokensAreUseableInCompilation) && methodIL is EcmaMethodIL)
                     {
                         // We may have already acquired the right type of MethodIL here, or be working with a method that is an IL Intrinsic
@@ -3402,6 +3402,11 @@ namespace Internal.JitInterface
             // If ftn isn't within the current version bubble we can't rely on methodInfo being
             // stable e.g. mark calls as no-return if their IL has no rets.
             return _compilation.NodeFactory.CompilationModuleGroup.VersionsWithMethodBody(method);
+        }
+
+        private CORINFO_WASM_TYPE_SYMBOL_STRUCT_* getWasmTypeSymbol(CorInfoType* types, UIntPtr typesSize)
+        {
+            throw new NotImplementedException();
         }
 
 #pragma warning disable CA1822 // Mark members as static

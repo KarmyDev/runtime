@@ -2497,6 +2497,11 @@ namespace Internal.JitInterface
             pInfo->tlsGetAddrFtnPtr = CreateConstLookupToSymbol(_compilation.NodeFactory.ExternFunctionSymbol(new Utf8String("__tls_get_addr"u8)));
         }
 
+        private CORINFO_WASM_TYPE_SYMBOL_STRUCT_* getWasmTypeSymbol(CorInfoType* types, UIntPtr typesSize)
+        {
+            throw new NotImplementedException();
+        }
+
 #pragma warning disable CA1822 // Mark members as static
         private bool notifyMethodInfoUsage(CORINFO_METHOD_STRUCT_* ftn)
 #pragma warning restore CA1822 // Mark members as static

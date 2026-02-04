@@ -640,6 +640,7 @@
     <Compile Include="Compiler\DependencyAnalysis\Target_Wasm\WasmReadyToRunHelperNode.cs" />
     <Compile Include="Compiler\DependencyAnalysis\Target_Wasm\WasmReadyToRunGenericHelperNode.cs" />
     <Compile Include="Compiler\DependencyAnalysis\Target_Wasm\WasmUnboxingStubNode.cs" />
+    <Compile Include="Compiler\DependencyAnalysis\Target_Wasm\WasmTypeNode.cs" />
     <Compile Include="Compiler\ObjectWriter\CodeView\CodeViewFileTableBuilder.cs" />
     <Compile Include="Compiler\ObjectWriter\CodeView\CodeViewNative.cs" />
     <Compile Include="Compiler\ObjectWriter\CodeView\CodeViewSymbolsBuilder.cs" />
