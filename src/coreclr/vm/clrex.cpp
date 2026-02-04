@@ -1671,9 +1671,13 @@ BOOL EEFileLoadException::CheckType(Exception* ex)
 /* static */
 EEFileLoadException* EEFileLoadException::CreateVersionConflictException(const SString &name, Exception *pInnerException)
 {
+    // Create exception with FUSION_E_REF_DEF_MISMATCH to maintain backward compatibility
+    // (existing code checks for this HRESULT, e.g., Marshal.cs)
     EEFileLoadException *pException = new EEFileLoadException(name, FUSION_E_REF_DEF_MISMATCH, pInnerException);
     
-    // Set custom message indicating this is a version conflict
+    // Use FUSION_E_APP_DOMAIN_LOCKED's message which specifically describes version conflicts:
+    // "The requested assembly version conflicts with what is already bound..."
+    // This provides a clearer error than FUSION_E_REF_DEF_MISMATCH's generic message.
     StackSString formatString;
     formatString.LoadResource(IDS_EE_FILELOAD_ERROR_GENERIC);
     StackSString versionMessage;
@@ -1708,8 +1712,10 @@ void DECLSPEC_NORETURN EEFileLoadException::Throw(AssemblySpec  *pSpec, HRESULT 
     StackSString name;
     pSpec->GetDisplayName(0, name);
 
-    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility
-    // but attach a custom message to indicate version conflict
+    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility.
+    // Existing code (e.g., Marshal.cs) expects FUSION_E_REF_DEF_MISMATCH (0x80131040) for assembly
+    // binding failures, so changing the HRESULT would be a breaking change. We attach a custom
+    // message to provide clearer information about version conflicts.
     if (hr == FUSION_E_APP_DOMAIN_LOCKED)
     {
         EEFileLoadException *pException = CreateVersionConflictException(name, pInnerException);
@@ -1738,8 +1744,10 @@ void DECLSPEC_NORETURN EEFileLoadException::Throw(PEAssembly *pPEAssembly, HRESU
     StackSString name;
     pPEAssembly->GetDisplayName(name);
 
-    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility
-    // but attach a custom message to indicate version conflict
+    // Convert FUSION_E_APP_DOMAIN_LOCKED to FUSION_E_REF_DEF_MISMATCH to maintain compatibility.
+    // Existing code (e.g., Marshal.cs) expects FUSION_E_REF_DEF_MISMATCH (0x80131040) for assembly
+    // binding failures, so changing the HRESULT would be a breaking change. We attach a custom
+    // message to provide clearer information about version conflicts.
     if (hr == FUSION_E_APP_DOMAIN_LOCKED)
     {
         EEFileLoadException *pException = CreateVersionConflictException(name, pInnerException);
