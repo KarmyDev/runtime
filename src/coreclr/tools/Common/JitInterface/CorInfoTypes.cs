@@ -735,6 +735,17 @@ namespace Internal.JitInterface
         CORINFO_TYPE_COUNT,                         // number of jit types
     }
 
+    // Used by Wasm RyuJIT to represent native WebAssembly types and exchanged via some JIT-EE APIs
+    public enum CorInfoWasmType
+    {
+        CORINFO_WASM_TYPE_VOID = 0x40,
+        CORINFO_WASM_TYPE_V128 = 0x7B,
+        CORINFO_WASM_TYPE_F64  = 0x7C,
+        CORINFO_WASM_TYPE_F32  = 0x7D,
+        CORINFO_WASM_TYPE_I64  = 0x7E,
+        CORINFO_WASM_TYPE_I32  = 0x7F,
+    }
+
     public enum CorInfoIsAccessAllowedResult
     {
         CORINFO_ACCESS_ALLOWED = 0,           // Call allowed

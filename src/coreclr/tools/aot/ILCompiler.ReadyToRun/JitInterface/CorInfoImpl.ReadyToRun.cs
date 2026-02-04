@@ -3404,9 +3404,9 @@ namespace Internal.JitInterface
             return _compilation.NodeFactory.CompilationModuleGroup.VersionsWithMethodBody(method);
         }
 
-        private CORINFO_WASM_TYPE_SYMBOL_STRUCT_* getWasmTypeSymbol(CorInfoType* types, UIntPtr typesSize)
+        private CORINFO_WASM_TYPE_SYMBOL_STRUCT_* getWasmTypeSymbol(CorInfoWasmType* types, UIntPtr typesSize)
         {
-            CorInfoType[] typeArray = new CorInfoType[(int)typesSize.ToUInt32()];
+            CorInfoWasmType[] typeArray = new CorInfoWasmType[(int)typesSize.ToUInt32()];
             for (int i = 0; i < typeArray.Length; i++)
             {
                 typeArray[i] = types[i];

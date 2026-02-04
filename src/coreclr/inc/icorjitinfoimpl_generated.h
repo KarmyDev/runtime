@@ -753,7 +753,7 @@ uint32_t getJitFlags(
           uint32_t sizeInBytes) override;
 
 CORINFO_WASM_TYPE_SYMBOL_HANDLE getWasmTypeSymbol(
-          CorInfoType* types,
+          CorInfoWasmType* types,
           size_t typesSize) override;
 
 CORINFO_METHOD_HANDLE getSpecialCopyHelper(

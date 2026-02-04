@@ -9,10 +9,10 @@ namespace ILCompiler.DependencyAnalysis.ReadyToRun
 {
     public class WasmTypeNode : ObjectNode
     {
-        private readonly CorInfoType[] _types;
+        private readonly CorInfoWasmType[] _types;
         private readonly ObjectNodeSection _section;
 
-        public WasmTypeNode(CorInfoType[] types, ObjectNodeSection section)
+        public WasmTypeNode(CorInfoWasmType[] types, ObjectNodeSection section)
             => (_types, _section) = (types, section);
 
         public override bool IsShareable => true;

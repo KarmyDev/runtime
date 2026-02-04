@@ -1750,7 +1750,7 @@ uint32_t WrapICorJitInfo::getJitFlags(
 }
 
 CORINFO_WASM_TYPE_SYMBOL_HANDLE WrapICorJitInfo::getWasmTypeSymbol(
-          CorInfoType* types,
+          CorInfoWasmType* types,
           size_t typesSize)
 {
     API_ENTER(getWasmTypeSymbol);

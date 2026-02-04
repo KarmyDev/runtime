@@ -10141,7 +10141,7 @@ void CEEInfo::getAddressOfPInvokeTarget(CORINFO_METHOD_HANDLE method,
 }
 
 CORINFO_WASM_TYPE_SYMBOL_HANDLE CEEInfo::getWasmTypeSymbol(
-    CorInfoType* types, size_t typesSize)
+    CorInfoWasmType* types, size_t typesSize)
 {
     CONTRACTL {
         THROWS;
