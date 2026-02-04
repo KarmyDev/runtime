@@ -1669,21 +1669,21 @@ BOOL EEFileLoadException::CheckType(Exception* ex)
 
 // Helper method to create a FileLoadException with custom message for version conflicts
 /* static */
-EEFileLoadException* EEFileLoadException::CreateVersionConflictException(const SString &name, Exception *pInnerException)
+EEFileLoadException* EEFileLoadException::CreateVersionConflictException(const SString &name, Exception *pInnerException, AssemblySpec *pSpec)
 {
     // Create exception with FUSION_E_REF_DEF_MISMATCH to maintain backward compatibility
     // (existing code checks for this HRESULT, e.g., Marshal.cs)
     EEFileLoadException *pException = new EEFileLoadException(name, FUSION_E_REF_DEF_MISMATCH, pInnerException);
     
-    // Use FUSION_E_APP_DOMAIN_LOCKED's message which specifically describes version conflicts:
-    // "The requested assembly version conflicts with what is already bound..."
-    // This provides a clearer error than FUSION_E_REF_DEF_MISMATCH's generic message.
+    // Build custom message with version conflict details
+    // The name parameter already includes the full requested assembly identity with version
     StackSString formatString;
     formatString.LoadResource(IDS_EE_FILELOAD_ERROR_GENERIC);
     StackSString versionMessage;
     GetHRMsg(FUSION_E_APP_DOMAIN_LOCKED, versionMessage);
     StackSString customMessage;
     customMessage.FormatMessage(FORMAT_MESSAGE_FROM_STRING, formatString.GetUnicode(), 0, 0, name, versionMessage);
+    
     pException->m_customMessage.Set(customMessage);
     
     return pException;
@@ -1718,7 +1718,7 @@ void DECLSPEC_NORETURN EEFileLoadException::Throw(AssemblySpec  *pSpec, HRESULT 
     // message to provide clearer information about version conflicts.
     if (hr == FUSION_E_APP_DOMAIN_LOCKED)
     {
-        EEFileLoadException *pException = CreateVersionConflictException(name, pInnerException);
+        EEFileLoadException *pException = CreateVersionConflictException(name, pInnerException, pSpec);
         PAL_CPP_THROW(EEFileLoadException *, pException);
     }
 
