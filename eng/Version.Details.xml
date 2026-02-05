@@ -1,8 +1,8 @@
 <Dependencies>
   <ProductDependencies>
-    <Dependency Name="Microsoft.NETCore.Runtime.ICU.Transport" Version="9.0.0-rtm.25627.1">
+    <Dependency Name="Microsoft.NETCore.Runtime.ICU.Transport" Version="9.0.0-rtm.26078.1">
       <Uri>https://github.com/dotnet/icu</Uri>
-      <Sha>cda39b50d316241f6c9dea44ed241a83aaccdfac</Sha>
+      <Sha>53915f585ca3dc5deff5c09c9492f7c5b7d925ca</Sha>
     </Dependency>
     <Dependency Name="System.Net.MsQuic.Transport" Version="9.0.0-alpha.1.24167.3">
       <Uri>https://github.com/dotnet/msquic</Uri>
@@ -54,14 +54,14 @@
       <Sha>803d8598f98fb4efd94604b32627ee9407f246db</Sha>
       <SourceBuild RepoName="command-line-api" ManagedOnly="true" />
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.Cecil" Version="0.11.5-alpha.25628.2">
+    <Dependency Name="Microsoft.DotNet.Cecil" Version="0.11.5-alpha.26075.3">
       <Uri>https://github.com/dotnet/cecil</Uri>
-      <Sha>1f9985e482df7a0dee94854226d0aecad102ac15</Sha>
+      <Sha>711eabb98b62ab3ddf6ab59c879713cd6e4f5982</Sha>
     </Dependency>
     <!-- Intermediate is necessary for source build. -->
-    <Dependency Name="Microsoft.SourceBuild.Intermediate.cecil" Version="0.11.5-alpha.25628.2">
+    <Dependency Name="Microsoft.SourceBuild.Intermediate.cecil" Version="0.11.5-alpha.26075.3">
       <Uri>https://github.com/dotnet/cecil</Uri>
-      <Sha>1f9985e482df7a0dee94854226d0aecad102ac15</Sha>
+      <Sha>711eabb98b62ab3ddf6ab59c879713cd6e4f5982</Sha>
       <SourceBuild RepoName="cecil" ManagedOnly="true" />
     </Dependency>
     <Dependency Name="Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport" Version="9.0.14-servicing.26102.1">
@@ -79,9 +79,9 @@
       <SourceBuild RepoName="emsdk" ManagedOnly="true" />
     </Dependency>
     <!-- Intermediate is necessary for source build. -->
-    <Dependency Name="Microsoft.SourceBuild.Intermediate.source-build-reference-packages" Version="9.0.0-alpha.1.25521.3">
+    <Dependency Name="Microsoft.SourceBuild.Intermediate.source-build-reference-packages" Version="9.0.0-alpha.1.26055.1">
       <Uri>https://github.com/dotnet/source-build-reference-packages</Uri>
-      <Sha>a9cadb09ddcc99b1e535efb0648047634f0c4f40</Sha>
+      <Sha>36e2d072b287fb211f288498b2d4553efdee7990</Sha>
       <SourceBuild RepoName="source-build-reference-packages" ManagedOnly="true" />
     </Dependency>
     <!-- Intermediate is necessary for source build. -->
@@ -174,57 +174,57 @@
       <Uri>https://github.com/dotnet/arcade</Uri>
       <Sha>9b9436a55a49bd58acb8ae95a57ad2185da26805</Sha>
     </Dependency>
-    <Dependency Name="System.ComponentModel.TypeConverter.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.ComponentModel.TypeConverter.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Data.Common.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Data.Common.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Drawing.Common.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Drawing.Common.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Formats.Tar.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Formats.Tar.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.IO.Compression.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.IO.Compression.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.IO.Packaging.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.IO.Packaging.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Net.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Net.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Private.Runtime.UnicodeData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Private.Runtime.UnicodeData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Runtime.TimeZoneData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Runtime.TimeZoneData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Security.Cryptography.X509Certificates.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Security.Cryptography.X509Certificates.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Text.RegularExpressions.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Text.RegularExpressions.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="System.Windows.Extensions.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Windows.Extensions.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.CilStrip.Sources" Version="9.0.0-beta.25625.4">
+    <Dependency Name="Microsoft.DotNet.CilStrip.Sources" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
     <Dependency Name="runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk" Version="19.1.0-alpha.1.26071.2" CoherentParentDependency="Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport">
       <Uri>https://github.com/dotnet/llvm-project</Uri>
@@ -320,17 +320,17 @@
       <Uri>https://github.com/dotnet/runtime</Uri>
       <Sha>b030c4dfdfa1bf287f10f96006619a06bc2000ae</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.XHarness.TestRunners.Common" Version="9.0.0-prerelease.25615.2">
+    <Dependency Name="Microsoft.DotNet.XHarness.TestRunners.Common" Version="11.0.0-prerelease.26064.3">
       <Uri>https://github.com/dotnet/xharness</Uri>
-      <Sha>c26361a23526ea459ca0a19b34b285eda1bffecb</Sha>
+      <Sha>31e0b8e08f57890f7b7004b93361d69cd4b21079</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.XHarness.TestRunners.Xunit" Version="9.0.0-prerelease.25615.2">
+    <Dependency Name="Microsoft.DotNet.XHarness.TestRunners.Xunit" Version="11.0.0-prerelease.26064.3">
       <Uri>https://github.com/dotnet/xharness</Uri>
-      <Sha>c26361a23526ea459ca0a19b34b285eda1bffecb</Sha>
+      <Sha>31e0b8e08f57890f7b7004b93361d69cd4b21079</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.XHarness.CLI" Version="9.0.0-prerelease.25615.2">
+    <Dependency Name="Microsoft.DotNet.XHarness.CLI" Version="11.0.0-prerelease.26064.3">
       <Uri>https://github.com/dotnet/xharness</Uri>
-      <Sha>c26361a23526ea459ca0a19b34b285eda1bffecb</Sha>
+      <Sha>31e0b8e08f57890f7b7004b93361d69cd4b21079</Sha>
     </Dependency>
     <Dependency Name="Microsoft.DotNet.PackageTesting" Version="9.0.0-beta.26070.1">
       <Uri>https://github.com/dotnet/arcade</Uri>
@@ -352,13 +352,13 @@
       <Uri>https://dev.azure.com/dnceng/internal/_git/dotnet-optimization</Uri>
       <Sha>9d7532585ce71e30ab55f0364d3cecccaf0775d1</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.HotReload.Utils.Generator.BuildTool" Version="9.0.0-alpha.0.25625.4">
+    <Dependency Name="Microsoft.DotNet.HotReload.Utils.Generator.BuildTool" Version="9.0.0-alpha.0.26104.3">
       <Uri>https://github.com/dotnet/hotreload-utils</Uri>
-      <Sha>6eb504148b667c521f41d18dca072f1d2d8eae07</Sha>
+      <Sha>3f4893bee30a42b1041149c9b50b7a49224fcb68</Sha>
     </Dependency>
-    <Dependency Name="System.Runtime.Numerics.TestData" Version="9.0.0-beta.25625.4">
+    <Dependency Name="System.Runtime.Numerics.TestData" Version="9.0.0-beta.26071.2">
       <Uri>https://github.com/dotnet/runtime-assets</Uri>
-      <Sha>70d5fa7d7d041da17e6f3827f55d7d9ceaffdb12</Sha>
+      <Sha>45c55b97e4006bac84d19a382ace44ef3dcb8d94</Sha>
     </Dependency>
     <Dependency Name="Microsoft.Net.Compilers.Toolset" Version="4.12.0-3.25569.8">
       <Uri>https://github.com/dotnet/roslyn</Uri>
